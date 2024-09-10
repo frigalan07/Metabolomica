@@ -1,9 +1,9 @@
-# [Nombre del proyecto]
+# Metabolomica
 
-Nombre: <!-- Nombre X (<email>)  -->  
-Nombre: <!-- Nombre X (<email>)  -->
+Frida Galan Hernandez: <!-- Frida (<fridagalangh@lcg.unam.mx>)  ->  
+Carlos Garcia Gonzalez: <!-- Carlos (<carlosgg@lcg.unam.mx>)  -->
 
-Fecha:  dd/mm/aaaa
+Fecha:  dd/mm/2024
 
 
 ## Introducción
