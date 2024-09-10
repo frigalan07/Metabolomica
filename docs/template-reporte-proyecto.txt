@@ -1,7 +1,7 @@
 # Metabolomica
 
-Frida Galan Hernandez: <!-- Frida (<fridagalangh@lcg.unam.mx>)  ->  
-Carlos Garcia Gonzalez: <!-- Carlos (<carlosgg@lcg.unam.mx>)  -->
+Frida Galan Hernandez: <fridagalangh@lcg.unam.mx> 
+Carlos Garcia Gonzalez: <carlosgg@lcg.unam.mx>
 
 Fecha:  dd/mm/2024
 
