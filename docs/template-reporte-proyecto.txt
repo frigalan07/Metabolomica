@@ -19,7 +19,7 @@ animales invertebrados y vertebrados o son patógenos de plantas (Logan, 1994).
 *E.coli* es una de las bacterias mas conocidas en la comunidad cientifica y la mas estudiada debido a que es un buen organismo 
 modelo, debido a que es facilmente cultivable, es de crecimiento rapido y te permite obtener densidades poblacionales grandes. 
 
-
+Continuación 
 ## Planteamiento del problema
 
 El proyecto busca identificar y cuantificar las variaciones en los perfiles metabolómicos de E. coli bajo distintas condiciones 
