@@ -1,5 +1,11 @@
 # Metabolomica
-Repositorio creado para trabajar datos metabolómicos de *E.coli* como proyecto del curso de BioPython de la Licenciatura en Ciencias Genómicas
+Repositorio creado para trabajar datos metabolómicos de *E.coli* como proyecto del curso de BioPython de la Licenciatura en Ciencias Genómicas. 
+
+# Autores 
+
+Carlos García González, estudiante de la Licenciatura en Ciencias Genómicas
+
+Frida Galán Hernández, estudiante de la Licenciatura en Ciencias Genómicas
 
 # Uso
 
