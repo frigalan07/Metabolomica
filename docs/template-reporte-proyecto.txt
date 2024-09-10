@@ -13,7 +13,7 @@ Fecha:  dd/mm/2024
 
 ## Planteamiento del problema
 
-<!-- Describir la problemática que se presenta, la situación que motiva la realización del proyecto/análisis y que está causando posibles inconvenientes. -->
+El proyecto busca identificar y cuantificar las variaciones en los perfiles metabolómicos de E. coli bajo distintas condiciones experimentales. Utilizando espectrometría de masas, se ha medido la intensidad relativa de diversos metabolitos intracelulares. Se plantea la necesidad de establecer si estas variaciones son significativas, así como asociar los cambios observados con rutas metabólicas reconocidas, mientras se controlan las diferencias entre réplicas técnicas y biológicas.
 
 
 ## Metodología
