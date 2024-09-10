@@ -8,7 +8,9 @@ Fecha:  dd/mm/2024
 
 ## Introducción
 
-<!-- [Describir los antecedentes que ayuden a comprender el proyecto a desarrollar, o bien el análisis que se requiere llevar a cabo, incluyendo términos o definiciones, e imágenes relacionados a este. Esta sección, permite el usuario tener la noción del tema que se va a bordar en el resto del documento. -->
+*Escherichia coli* es un bacteria Gram negativa típica de la familia Enterobacteriaceae. El análisis de 16rRNA muestra que pertenece a la subclase de proteobacterias γ, misma que se encuentra muy relacionada a las otras proteobacteria (α, β, δ) y a las cianobacterias (Logan, 1994). La subclase de proteobacterias g, incluye además a organismos patógenos de humanos, como son Shigella, Samonella, Vibrio y Haemophilus. Las bacterias de la familia Enterobacteriaceae se caracterizan por ser capaces de respirar facultativamente: anaérobicamente en el interior del intestino y aerobicamente en el ambiente exterior. Gracias a esta capacidad muchos de los miembros de esta familia son de vida libre, mientras que otros tantos son principalmente comensales de animales invertebrados y vertebrados o son patógenos de plantas (Logan, 1994).
+
+*E.coli* es una de las bacterias mas conocidas en la comunidad cientifica y la mas estudiada debido a que es un buen organismo modelo, debido a que es facilmente cultivable, es de crecimiento rapido y te permite obtener densidades poblacionales grandes. 
 
 
 ## Planteamiento del problema
