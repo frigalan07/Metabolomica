@@ -3,9 +3,9 @@ Repositorio creado para trabajar datos metabolómicos de *E.coli* como proyecto 
 
 # Autores 
 
-Carlos García González, estudiante de la Licenciatura en Ciencias Genómicas
+Frida Galan Hernandez, estudiante de la Licenciatura en Ciencias Genómicas
 
-Frida Galán Hernández, estudiante de la Licenciatura en Ciencias Genómicas
+Carlos Garcia Gonzalez, estudiante de la Licenciatura en Ciencias Genómicas
 
 # Uso
 
