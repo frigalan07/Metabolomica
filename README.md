@@ -21,5 +21,6 @@ Repositorio creado para trabajar datos metabolómicos de *E.coli* como proyecto 
 
 # Cotactenos 
 
-emails:<fridagalan@lcg.unam.mx>
-        <carlosgg@lcg.unam.mx>
+email:<fridagalan@lcg.unam.mx>
+
+email:<carlosgg@lcg.unam.mx>
