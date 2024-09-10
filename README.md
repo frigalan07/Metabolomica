@@ -4,6 +4,7 @@ Repositorio creado para trabajar datos metabolómicos de *E.coli* como proyecto 
 # Autores 
 
 Carlos García González 
+
 Frida Galán Hernández 
 
 # Uso
