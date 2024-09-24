@@ -44,9 +44,18 @@ Las descripciones de las primeras 5 columnas son las siguientes:
 - Formula. Fórmula química.
 - KEGG ids. Id del metabolito en la base de datos KEGG (https://www.genome.jp/kegg/)
 
-Las demás columnas son las mediciones de los metabolitos. 
+Las demás columnas son las mediciones de los metabolitos, cada columna tiene un nombre específico, que en general se representan como:
 
-PENDIENTE DE ACABAR
+- Indice consecutivo por condición 
+- punto 
+- id de la condición 
+- guión bajo 
+- número de la réplica biológica 
+- id de la réplica técnica
+
+```
+2.h20_s1
+```
 
 
 
