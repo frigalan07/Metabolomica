@@ -30,7 +30,8 @@ metabólicas reconocidas, mientras se controlan las diferencias entre réplicas 
 
 ## Metodología
 
-<!-- [Identificar y describir los diferentes datos de entrada con los que se cuenta, así como de dónde fueron descargados, el formato de los mismos, y las columnas con las que cuenta. Especificar si se utilizará un servidor en particular para trabajar, o herramientas para el desarrollo de la solución del análsis. Formular las preguntas biológicas que se busca resolver con el análisis de los datos para determinar las tareas a realizar por cada una de ellas.]
+Nuestros datos de entrada son unos datos de Metábolomica, los cuales fueron elaborados por la Dra. Daniela Ledezma.
+Dichos datos se encuentran en un archivo de EXCEL (.xlsx)
 
 
 ### A. Servidor y software
