@@ -30,8 +30,10 @@ metabólicas reconocidas, mientras se controlan las diferencias entre réplicas 
 
 ## Metodología
 
-Nuestros datos de entrada son unos datos de Metábolomica, los cuales fueron elaborados por la Dra. Daniela Ledezma.
-Dichos datos se encuentran en un archivo de EXCEL (.xlsx)
+Nuestros datos de entrada son datos de metabolomicos, los cuales fueron elaborados por la Dra. Daniela Ledezma del Centro de Ciencias
+Genómicas.
+Dichos datos se encuentran en un archivo EXCEL (.xlsx)
+
 
 
 ### A. Servidor y software
