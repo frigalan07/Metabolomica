@@ -32,7 +32,19 @@ metabólicas reconocidas, mientras se controlan las diferencias entre réplicas 
 
 Nuestros datos de entrada son datos de metabolomicos, los cuales fueron elaborados por la Dra. Daniela Ledezma del Centro de Ciencias
 Genómicas.
-Dichos datos se encuentran en un archivo EXCEL (.xlsx) 
+Dichos datos se encuentran en un archivo EXCEL (.xlsx).
+
+Los datos son intensidades de metabolitos intracelulares de **E. coli** crecida en medio mínimo (M9) con distintas adiciones al medio.
+
+Las descripciones de las primeras 5 columnas son las siguientes:
+
+- ionIdx. Indices del metabolito	
+- ionMz. Coeficiente masa/Carga del metabolito. Es lo que arroja de forma cruda el espectrómetro de masas.
+- Top annotation name. Nombre del metabolito
+- Formula. Fórmula química.
+- KEGG ids. Id del metabolito en la base de datos KEGG (https://www.genome.jp/kegg/)
+
+Las demás columnas son las mediciones de los metabolitos. 
 
 PENDIENTE DE ACABAR
 
