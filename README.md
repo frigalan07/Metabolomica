@@ -5,11 +5,9 @@ Se planean responder varias preguntas biologicas
 # Autores 
 
 Frida Galan Hernandez, estudiante de tercer semestre de la Licenciatura en Ciencias Genómicas.
-
 email:<fridagalan@lcg.unam.mx>
 
 Carlos Garcia Gonzalez, estudiante de tercer semestre de la Licenciatura en Ciencias Genómicas.
-
 email:<carlosgg@lcg.unam.mx>
 
 # Uso
