@@ -1,4 +1,4 @@
-# Metabolomica <3
+# Metabolomica 
 
 Frida Galan Hernandez: <fridagalangh@lcg.unam.mx> 
 Carlos Garcia Gonzalez: <carlosgg@lcg.unam.mx>
