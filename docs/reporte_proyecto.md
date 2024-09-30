@@ -1,0 +1,209 @@
+# Metabolomica <3
+
+Frida Galan Hernandez: <fridagalangh@lcg.unam.mx> 
+Carlos Garcia Gonzalez: <carlosgg@lcg.unam.mx>
+
+Fecha:  10/mm/2024
+
+
+## Introducción
+
+*Escherichia coli* es un bacteria Gram negativa típica de la familia Enterobacteriaceae. El análisis de 16rRNA muestra que 
+pertenece a la subclase de proteobacterias γ, misma que se encuentra muy relacionada a las otras proteobacteria (α, β, δ) y a las 
+cianobacterias (Logan, 1994). La subclase de proteobacterias g, incluye además a organismos patógenos de humanos, como son 
+Shigella, Samonella, Vibrio y Haemophilus. Las bacterias de la familia Enterobacteriaceae se caracterizan por ser capaces de 
+respirar facultativamente: anaérobicamente en el interior del intestino y aerobicamente en el ambiente exterior. Gracias a esta 
+capacidad muchos de los miembros de esta familia son de vida libre, mientras que otros tantos son principalmente comensales de 
+animales invertebrados y vertebrados o son patógenos de plantas (Logan, 1994).
+
+*E.coli* es una de las bacterias mas conocidas en la comunidad cientifica y la mas estudiada debido a que es un buen organismo 
+modelo, debido a que es facilmente cultivable, es de crecimiento rapido y te permite obtener densidades poblacionales grandes. 
+
+Continuación 
+## Planteamiento del problema
+
+El proyecto busca identificar y cuantificar las variaciones en los perfiles metabolómicos de E. coli bajo distintas condiciones 
+experimentales. Utilizando espectrometría de masas, se ha medido la intensidad relativa de diversos metabolitos intracelulares. Se 
+plantea la necesidad de establecer si estas variaciones son significativas, así como asociar los cambios observados con rutas 
+metabólicas reconocidas, mientras se controlan las diferencias entre réplicas técnicas y biológicas.
+
+
+## Metodología
+
+Nuestros datos de entrada son datos de metabolomicos, los cuales fueron elaborados por la Dra. Daniela Ledezma del Centro de Ciencias
+Genómicas.
+Dichos datos se encuentran en un archivo EXCEL (.xlsx).
+
+Los datos son intensidades de metabolitos intracelulares de **E. coli** crecida en medio mínimo (M9) con distintas adiciones al medio.
+
+Las descripciones de las primeras 5 columnas son las siguientes:
+
+- ionIdx. Indices del metabolito	
+- ionMz. Coeficiente masa/Carga del metabolito. Es lo que arroja de forma cruda el espectrómetro de masas.
+- Top annotation name. Nombre del metabolito
+- Formula. Fórmula química.
+- KEGG ids. Id del metabolito en la base de datos KEGG (https://www.genome.jp/kegg/)
+
+Las demás columnas son las mediciones de los metabolitos, cada columna tiene un nombre específico, que en general se representan como:
+
+- Indice consecutivo por condición 
+- punto 
+- id de la condición 
+- guión bajo 
+- número de la réplica biológica 
+- id de la réplica técnica
+
+```
+2.h20_s1
+```
+
+
+
+### A. Servidor y software
+
+> Servidor: 
+
+> Usuario: 
+
+> Software: 
+
+### B. Datos de Entrada 
+
+Entendiendo los archivos de datos 
+
+Los datos de entrada fueron descargados desde NCBI y se encuentran en RUTA DE LA CARPETA.
+
+```
+|-- data
+|   |-- coli_genomic.fna
+|   |-- coli.gff
+|   |-- coli_protein.fna
+|   |-- directorio.txt
+|   `-- flagella_genes.txt
+```
+-->
+
+#### Metadatos de la carpeta de datos
+
+<!-- 
+> Versión/Identificador del genoma:  NC_000913.3
+
+> Fecha de descarga: dd/mm/aaaa
+
+>| Archivo | Descripción  | Tipo |
+|:--      |:--           |:--  |
+| coli_genomic.fna  | Secuencia de nucleotidos de E. coli  | Formato FastA |
+| coli.gff.   | Anotación del genoma de E. coli  | Formato gff |
+| coli_protein.faa | Secuencia de aminoacidos de las proteinas de E. coli | formato FastA|
+| flagella_genes.txt | Genes con función relacionada al flagello en E. coli | lista |
+| directorio.txt. | Archivo con nombres de personas | lista |
+
+-->
+
+#### Formato de los archivos
+
+<!-- 
+
+- `coli_genomic.fna` : formato FastA
+
+
+```
+>NC_000913.3 Escherichia coli str. K-12 substr. MG1655, complete genome
+AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTAAAAAAAGAGTGTCTGATAGCAGCTTCTGAACTG
+GTTACCTGCCGTGAGTAAATTAAAATTTTATTGACTTAGGTCACTAAATACTTTAACCAATATAGGCATAGCGCACAGAC
+AGATAAAAATTACAGAGTACACAACATCCATGAAACGCATTAGCACCACCATTACCACCACCATCACCATTACCACAGGT
+```
+
+Formato: 
+
+> a. La primera línea es información de la secuencia. Primero viene el identificador del genoma.
+
+> b. Después vienen varias líneas con la secuencia de nuclótidos del genoma completo.
+
+
+
+- `coli.gff`: anotación de features en el genoma
+
+
+El contenido del archivo es:
+
+```
+##gff-version 3
+#!gff-spec-version 1.21
+#!processor NCBI annotwriter
+#!genome-build ASM584v2
+#!genome-build-accession NCBI_Assembly:GCF_000005845.2
+##sequence-region NC_000913.3 1 4641652
+##species https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=511145
+
+NC_000913.3     RefSeq  region  1       4641652 .       +       .       ID=NC_000913.3:1.>
+NC_000913.3     RefSeq  gene    190     255     .       +       .       ID=gene-b0001;Dbx>
+NC_000913.3     RefSeq  CDS     190     255     .       +       0       ID=cds-NP_414542.>
+NC_000913.3     RefSeq  gene    337     2799    .       +       .       ID=gene-b0002;Dbx>
+NC_000913.3     RefSeq  CDS     337     2799    .       +       0       ID=cds-NP_414543.>
+
+```
+
+Formato: 
+
+> a. Es un formato gff tabular, es decir, cada dato es separado por tabulador.
+> 
+> b. Cada renglón en el formato gff es una elemento genético anotado en el genoma, que se le denomina `feature`, éstos features pueden ser genes, secuencias de inserción, promotores, sitios de regulación, todo aquello que este codificado en el DNA y ocupe una región en el genoma de  E. coli.
+
+> c. Los atributos de cada columna par cada elemento genético son
+
+>```
+1. seqname. Nombre del cromosoma
+2. source. Nombre del programa que generó ese elemento
+3. feature. Tipo de elemento
+4. start. Posición de inicio
+5. end. Posición de final
+6. score. Un valor de punto flotante
+7. strand. La cadena (+ , - )
+8. frame. Marco de lectura
+9.  attribute. Pares tag-value, separados por coma, que proveen información adicional
+```
+
+
+#### Preguntas de investigación
+> ¿Pregunta X?
+Respuesta: Describir el trabajo que implica o pasos a seguir para resolver esta pregunta.
+
+
+
+-->
+
+
+## Resultados
+ 
+
+<!-- ### X. Pregunta 
+
+Archivo(s):     
+
+Algoritmo: 
+
+1. 
+
+Solución: Describir paso a paso la solución, incluyendo los comandos correspondientes
+
+```bash
+
+```
+
+-->
+
+
+
+
+## Análisis y Conclusiones
+
+ <!-- Describir todo lo que descubriste en este análisis -->
+
+
+## Referencias
+<!-- Registrar todas las referencias consultadas. Se sugiere formato APA. Ejemplo:
+ 
+ [1] Frederick R. Blattner et al., The Complete Genome Sequence of <i>Escherichia coli</i> K-12.Science277,1453-1462(1997).DOI:10.1126/science.277.5331.1453
+ 
+ -->
