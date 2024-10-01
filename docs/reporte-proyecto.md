@@ -8,12 +8,19 @@ Fecha:  29/09/2024
 
 ## Introducción
 
-*Escherichia coli* es un bacteria Gram negativa típica de la familia Enterobacteriaceae. El análisis de 16rRNA muestra que 
-pertenece a la subclase de proteobacterias γ, misma que se encuentra muy relacionada a las otras proteobacteria (α, a las 
-cianobacterias. La subclase de proteobacterias g, incluye además a organismos patógenos de humanos, como son Shigella, Samonella, Vibrio y Haemophilus. Las bacterias de la familia Enterobacteriaceae se caracterizan por ser capaces de 
-respirar facultativamente: anaérobicamente en el interior del intestino y aerobicamente en el ambiente exterior. Gracias a esta 
-capacidad muchos de los miembros de esta familia son de vida libre, mientras que otros tantos son principalmente comensales de  animales invertebrados y vertebrados o son patógenos de plantas (1). *Escherichia coli* es la flora facultativa no patógena predominante del intestino humano. Sin embargo, algunas cepas de E. coli han desarrollado la capacidad de causar enfermedades del sistema gastrointestinal, urinario o nervioso central incluso en los huéspedes humanos más robustos. (2) Estas cepas patógenas como lo son *E. coli* enterotoxigénica (ETEC) y *E. coli* enterohemorrágica (EHEC) , son un gran desafío para la salud pública mundial. 
-*E.coli* es una de las bacterias más conocidas en la comunidad científica y la más estudiada debido a que es un buen organismo modelo, debido a que es fácilmente cultivable, es de crecimiento rápido y te permite obtener densidades poblacionales grandes, por tanto el estudio de su metabolómica, que se define como -una disciplina compleja que se centra en el estudio de metabolitos presentes en células, tejidos u organismos en un tiempo determinado o bajo un estímulo-(3) nos da una excelente ventana para el estudio de su metabolismo y su interacción con diversos medios. Dicho conocimiento es de importancia porque se puede extrapolar para estudios posteriores, ya que esta bacteria es ampliamente utilizada en la industria de la biotecnología, sobretodo en la producción de proteínas recombinantes. Su capacidad de poder modificarla genéticamente la convierte en un sistema ideal para estudios de expresión génica y producción de metabolitos de interés. A través de la ingeniería metabólica, se exploran nuevas vías para mejorar la producción de compuestos bioquímicos útiles y desarrollar nuevas estrategias de tratamiento contra las infecciones causadas por cepas patógenas.
+Las estructuras centrales de los metabolitos celulares, que van desde los componentes de la glucólisis y el ciclo del ácido cítrico hasta los intermediarios en la biosíntesis de nucleótidos, son idénticas en todos los organismos conocidos. La organización de estos metabolitos en vías de reacciones covalentes también es impresionantemente similar entre las especies. La secuenciación de los genomas completos de organismos que van desde *E. coli* hasta humanos ha llevado a la asignación a cada reacción metabólica de las secuencias de enzimas responsables de su catálisis. Esta información ha abierto la puerta a la metabolómica celular: el estudio cuantitativo de la red completa del metabolismo celular, en este sentido, la metabolómica se refiere a la medición del contenido total de moléculas pequeñas de los sistemas biológicos y el intento de relacionar el resultado sobre los fenómenos biológicos subyacentes. Su nacimiento y crecimiento como campo de estudio ha sido catalizado por los éxitos de la genómica, así como por avances en espectrometría de masas (MS) que facilitan la medición altamente paralela de moléculas pequeñas.(1)
+
+Ahora bien, ¿y por qué elegir *E. coli* para su estudio?
+
+*Escherichia coli* es una bacteria Gram negativa típica de la familia Enterobacteriaceae. El análisis de 16S rRNA muestra que pertenece a la subclase de proteobacterias γ, misma que se encuentra muy relacionada a las otras proteobacterias (α, a las cianobacterias). La subclase de proteobacterias γ incluye además a organismos patógenos de humanos, como son Shigella, Salmonella, Vibrio y Haemophilus. Las bacterias de la familia Enterobacteriaceae se caracterizan por ser capaces de respirar facultativamente: anaeróbicamente en el interior del intestino y aeróbicamente en el ambiente exterior. Gracias a esta capacidad muchos de los miembros de esta familia son de vida libre, mientras que otros tantos son principalmente comensales de animales invertebrados y vertebrados o son patógenos de plantas (2).
+
+Las bacterias entéricas son varillas Gram-negativas no fotosintéticas capaces de generar ATP tanto aeróbicamente como anaeróbicamente. Por lo general, son competentes para vivir en medios mínimos simples que contienen solo sal, azúcar, amoníaco, fosfato y sulfato. Sus vías de metabolismo central y biosíntesis son notablemente similares a las de la levadura (3) y también, en cierta medida, de los mamíferos, a pesar de la compartimentación intracelular radicalmente diferente.(2)
+
+*E. coli* es una de las bacterias más conocidas en la comunidad científica y la más estudiada debido a que es un buen organismo modelo, debido a que es fácilmente cultivable, es de crecimiento rápido y te permite obtener densidades poblacionales grandes, por tanto el estudio de su metabolómica, nos da una excelente ventana para el estudio de su metabolismo y su interacción con diversos medios. Dicho conocimiento es de importancia porque se puede extrapolar para estudios posteriores, ya que esta bacteria es ampliamente utilizada en la industria de la biotecnología, sobre todo en la producción de proteínas recombinantes. Su capacidad de poder modificarla genéticamente la convierte en un sistema ideal para estudios de expresión génica y producción de metabolitos de interés. A través de la ingeniería metabólica, se exploran nuevas vías para mejorar la producción de compuestos bioquímicos útiles y desarrollar nuevas estrategias de tratamiento contra las infecciones causadas por cepas patógenas.
+Las vías metabólicas de un amplio espectro de organismos están bien capturadas en varias bases de datos accesibles a la web, por ejemplo, la Enciclopedia de Genes y Genomas de Kioto (KEGG)(1), la cual es una de las que utilizaremos en este proyecto.
+
+
+"Lo que es cierto de *Escherichia coli* también debe ser cierto de los elefantes", opinó el premio Nobel Jacques Monod en 1954(4).
 
 
 ## Planteamiento del problema
@@ -162,8 +169,10 @@ Formato:
 
 
 #### Preguntas de investigación
-> ¿Pregunta X?
-Respuesta: Describir el trabajo que implica o pasos a seguir para resolver esta pregunta.
+
+1)¿Cómo cambia la intensidad de cada metabolito en respuesta a los  diferentes medios?
+2)¿Qué vías metabólicas se ven afectadas por dicho cambio en el medio?
+3)Proponer mediante que mecanismos se ven afectadas dichas vías metabólicas 
 
 
 
@@ -199,10 +208,13 @@ Solución: Describir paso a paso la solución, incluyendo los comandos correspon
 
 ## Referencias
 <!-- Registrar todas las referencias consultadas. Se sugiere formato APA. Ejemplo:
+
+ [1]Rabinowitz, J. D. (2007). Cellular metabolomics of Escherchia coli. Expert Review of Proteomics, 4(2), 187–198. https://    doi.org/10.1586/14789450.4.2.187 
+ [2] Logan, N. A. 1994. Bacterial systematics. Blackwell scientific publications, Oxford, 263pp.
+ [3]Forster J, Famili I, Fu P, Palsson BO,
+Nielsen J. Genome-scale reconstruction of the Saccharomyces cerevisiae metabolic network. Genome Res. 13(2), 244–253 (2003).
+ [4] Friedmann HC. From “butyribacterium” to “E. coli”: an essay on unity in biochemistry. Perspect. Biol. Med. 47(1), 47–66 (2004).
  
- [1] Logan, N. A. 1994. Bacterial systematics. Blackwell scientific publications, Oxford, 263pp.
- [2] Nataro JP, Kaper JB.1998.Diarrheagenic Escherichia coli. Clin Microbiol Rev 11:.https://doi.org/10.1128/cmr.11.1.142
- [3] Diccionario del Instituto Nacional del Cáncer. Instituto Nacionales de la Salud, Gobierno de Estados Unidos, https://www.cancer.gov/espanol/publicaciones/diccionarios/diccionario-cancer/def/metabolomica.
 
  
  -->
