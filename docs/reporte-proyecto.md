@@ -98,10 +98,12 @@ Los datos de entrada fueron descargados desde NCBI y se encuentran en RUTA DE LA
 
 
 
-#### Preguntas de investigación
+### Preguntas de investigación
 
 1)¿Cómo cambia la intensidad de cada metabolito en respuesta a los  diferentes medios?
+
 2)¿Qué vías metabólicas se ven afectadas por dicho cambio en el medio?
+
 3)Proponer mediante que mecanismos se ven afectadas dichas vías metabólicas 
 
 
