@@ -33,33 +33,52 @@ metabólicas reconocidas, mientras se controlan las diferencias entre réplicas 
 
 ## Metodología
 
-Nuestros datos de entrada son datos de metabolomicos, los cuales fueron elaborados por la Dra. Daniela Ledezma del Centro de Ciencias
-Genómicas.
-Dichos datos se encuentran en un archivo EXCEL (.xlsx).
+*Nuestros datos de entrada son datos de metabolómicos, los cuales fueron elaborados por la Dra. Daniela Ledezma del Centro de Ciencias Genómicas.
+
+Estos datos al principio se encotraban en forma de un archivo EXCEL (.xlsx), pero los modificamos
+para que sean ".csv", que nos serviran de mejor manera.
 
 Los datos son intensidades de metabolitos intracelulares de **E. coli** crecida en medio mínimo (M9) con distintas adiciones al medio.
 
 Las descripciones de las primeras 5 columnas son las siguientes:
 
-- ionIdx. Indices del metabolito	
-- ionMz. Coeficiente masa/Carga del metabolito. Es lo que arroja de forma cruda el espectrómetro de masas.
-- Top annotation name. Nombre del metabolito
-- Formula. Fórmula química.
-- KEGG ids. Id del metabolito en la base de datos KEGG (https://www.genome.jp/kegg/)
+* ionIdx. Indices del metabolito	
+* ionMz. Coeficiente masa/Carga del metabolito. Es lo que arroja de forma cruda el espectrómetro de masas.
+* Top annotation name. Nombre del metabolito
+* Formula. Fórmula química.
+* KEGG ids. Id del metabolito en la base de datos KEGG (https://www.genome.jp/kegg/)
 
 Las demás columnas son las mediciones de los metabolitos, cada columna tiene un nombre específico, que en general se representan como:
 
-- Indice consecutivo por condición 
-- punto 
-- id de la condición 
-- guión bajo 
-- número de la réplica biológica 
-- id de la réplica técnica
+* Indice consecutivo por condición 
+* punto 
+* id de la condición 
+* guión bajo 
+* número de la réplica biológica 
+* id de la réplica técnica
 
 ```
 2.h20_s1
 ```
 
+Con estos datos planeamos resolver distintas preguntas biológicas, siguiendo un flujo claro
+y específico, la logica que usaremos es la siguiente:
+
+1. Definir los datos a trabajar, en este caso son los datos descritos previamente.
+
+2. Revisar los datos detalladamente y entender su nomenclatura y anotación.
+
+3. Definir un subset de datos con los cuales trabajan, ya que son demasiados datos.
+
+4. Definir cual va a ser nuestro punto de corte, es decir, cuál sería una medida "normal" en la intensidad de los metabolitos, esto es de suma importancia, ya que de esta medida va a depender lo siguiente que hagamos.
+
+5. Obtener las columnas donde haya una gran concentración de matbolito y en las que haya menos, generando con estos un segundo subset de datos, para determinar que es una concentración mayor o menor, ocuparemos el dato anterior.
+
+6. Una vez que tengamos ese subset, conseguir sus ID de la base de datos de KEEG y guardarlos en un archivo.
+
+7. Ya que tengamos ese archivo, buscar las vías metabólicas en las que estan envueltos esos metabolitos, esta busqueda la haremos en la base de datos de KEEG.
+
+8. Una vez que sepamos sus rutas metabólicas, vamos a interpretar los resultados y explicarlos para poder contestar nuestra pregunta biológica.*
 
 
 ### A. Servidor y software
@@ -76,15 +95,6 @@ Entendiendo los archivos de datos
 
 Los datos de entrada fueron descargados desde NCBI y se encuentran en RUTA DE LA CARPETA.
 
-```
-|-- data
-|   |-- coli_genomic.fna
-|   |-- coli.gff
-|   |-- coli_protein.fna
-|   |-- directorio.txt
-|   `-- flagella_genes.txt
-```
--->
 
 #### Metadatos de la carpeta de datos
 
@@ -105,73 +115,14 @@ Los datos de entrada fueron descargados desde NCBI y se encuentran en RUTA DE LA
 
 #### Formato de los archivos
 
-<!-- 
-
-- `coli_genomic.fna` : formato FastA
 
 
-```
->NC_000913.3 Escherichia coli str. K-12 substr. MG1655, complete genome
-AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTAAAAAAAGAGTGTCTGATAGCAGCTTCTGAACTG
-GTTACCTGCCGTGAGTAAATTAAAATTTTATTGACTTAGGTCACTAAATACTTTAACCAATATAGGCATAGCGCACAGAC
-AGATAAAAATTACAGAGTACACAACATCCATGAAACGCATTAGCACCACCATTACCACCACCATCACCATTACCACAGGT
-```
-
-Formato: 
-
-> a. La primera línea es información de la secuencia. Primero viene el identificador del genoma.
-
-> b. Después vienen varias líneas con la secuencia de nuclótidos del genoma completo.
-
-
-
-- `coli.gff`: anotación de features en el genoma
-
-
-El contenido del archivo es:
-
-```
-##gff-version 3
-#!gff-spec-version 1.21
-#!processor NCBI annotwriter
-#!genome-build ASM584v2
-#!genome-build-accession NCBI_Assembly:GCF_000005845.2
-##sequence-region NC_000913.3 1 4641652
-##species https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=511145
-
-NC_000913.3     RefSeq  region  1       4641652 .       +       .       ID=NC_000913.3:1.>
-NC_000913.3     RefSeq  gene    190     255     .       +       .       ID=gene-b0001;Dbx>
-NC_000913.3     RefSeq  CDS     190     255     .       +       0       ID=cds-NP_414542.>
-NC_000913.3     RefSeq  gene    337     2799    .       +       .       ID=gene-b0002;Dbx>
-NC_000913.3     RefSeq  CDS     337     2799    .       +       0       ID=cds-NP_414543.>
-
-```
-
-Formato: 
-
-> a. Es un formato gff tabular, es decir, cada dato es separado por tabulador.
-> 
-> b. Cada renglón en el formato gff es una elemento genético anotado en el genoma, que se le denomina `feature`, éstos features pueden ser genes, secuencias de inserción, promotores, sitios de regulación, todo aquello que este codificado en el DNA y ocupe una región en el genoma de  E. coli.
-
-> c. Los atributos de cada columna par cada elemento genético son
-
->```
-1. seqname. Nombre del cromosoma
-2. source. Nombre del programa que generó ese elemento
-3. feature. Tipo de elemento
-4. start. Posición de inicio
-5. end. Posición de final
-6. score. Un valor de punto flotante
-7. strand. La cadena (+ , - )
-8. frame. Marco de lectura
-9.  attribute. Pares tag-value, separados por coma, que proveen información adicional
-```
-
-
-#### Preguntas de investigación
+### Preguntas de investigación
 
 1)¿Cómo cambia la intensidad de cada metabolito en respuesta a los  diferentes medios?
+
 2)¿Qué vías metabólicas se ven afectadas por dicho cambio en el medio?
+
 3)Proponer mediante que mecanismos se ven afectadas dichas vías metabólicas 
 
 
@@ -207,7 +158,6 @@ Solución: Describir paso a paso la solución, incluyendo los comandos correspon
 
 
 ## Referencias
-<!-- Registrar todas las referencias consultadas. Se sugiere formato APA. Ejemplo:
 
  [1]Rabinowitz, J. D. (2007). Cellular metabolomics of Escherchia coli. Expert Review of Proteomics, 4(2), 187–198. https://    doi.org/10.1586/14789450.4.2.187 
  [2] Logan, N. A. 1994. Bacterial systematics. Blackwell scientific publications, Oxford, 263pp.

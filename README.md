@@ -5,9 +5,13 @@ El proyecto busca identificar y cuantificar las variaciones en los perfiles meta
 
 # Autores 
 
-Frida Galan Hernandez, estudiante de la Licenciatura en Ciencias Genómicas
+Frida Galan Hernandez, estudiante de tercer semestre de la Licenciatura en Ciencias Genómicas.
 
-Carlos Garcia Gonzalez, estudiante de la Licenciatura en Ciencias Genómicas
+email:<fridagalan@lcg.unam.mx>
+
+Carlos Garcia Gonzalez, estudiante de tercer semestre de la Licenciatura en Ciencias Genómicas.
+
+email:<carlosgg@lcg.unam.mx>
 
 # Uso
 
