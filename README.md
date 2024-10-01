@@ -1,6 +1,7 @@
 # Metabolomica
 Repositorio creado para trabajar datos metabolómicos de *E.coli* como proyecto del curso de BioPython de la Licenciatura en Ciencias Genómicas. 
-Se planean responder varias preguntas biologicas 
+
+El proyecto busca identificar y cuantificar las variaciones en los perfiles metabolómicos de *E. coli* bajo distintas condiciones experimentales. Utilizando espectrometría de masas, se ha medido la intensidad relativa de diversos metabolitos intracelulares. Se plantea la necesidad de establecer si estas variaciones son significativas, así como asociar los cambios observados con rutas metabólicas reconocidas, mientras se controlan las diferencias entre réplicas técnicas y biológicas para asegurar una robustez de los resultados.
 
 # Autores 
 
@@ -27,7 +28,6 @@ Carlos Garcia Gonzalez, estudiante de la Licenciatura en Ciencias Genómicas
 # Como Citar
 
 # Cotactenos 
-Modificación de prueba
 
 email:<fridagalan@lcg.unam.mx>
 
