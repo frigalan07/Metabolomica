@@ -8,16 +8,40 @@ Fecha:  29/09/2024
 
 ## Introducción
 
-Las estructuras centrales de los metabolitos celulares, que van desde los componentes de la glucólisis y el ciclo del ácido cítrico hasta los intermediarios en la biosíntesis de nucleótidos, son idénticas en todos los organismos conocidos. La organización de estos metabolitos en vías de reacciones covalentes también es impresionantemente similar entre las especies. La secuenciación de los genomas completos de organismos que van desde *E. coli* hasta humanos ha llevado a la asignación a cada reacción metabólica de las secuencias de enzimas responsables de su catálisis. Esta información ha abierto la puerta a la metabolómica celular: el estudio cuantitativo de la red completa del metabolismo celular, en este sentido, la metabolómica se refiere a la medición del contenido total de moléculas pequeñas de los sistemas biológicos y el intento de relacionar el resultado sobre los fenómenos biológicos subyacentes. Su nacimiento y crecimiento como campo de estudio ha sido catalizado por los éxitos de la genómica, así como por avances en espectrometría de masas (MS) que facilitan la medición altamente paralela de moléculas pequeñas.(1)
+Las estructuras centrales de los metabolitos celulares, que van desde los componentes de la glucólisis y el ciclo del ácido cítrico hasta 
+los intermediarios en la biosíntesis de nucleótidos, son idénticas en todos los organismos conocidos. La organización de estos metabolitos en 
+vías de reacciones covalentes también es impresionantemente similar entre las especies. La secuenciación de los genomas completos de organismos 
+que van desde *E. coli* hasta humanos ha llevado a la asignación a cada reacción metabólica de las secuencias de enzimas responsables de su 
+catálisis. Esta información ha abierto la puerta a la metabolómica celular: el estudio cuantitativo de la red completa del metabolismo celular, 
+en este sentido, la metabolómica se refiere a la medición del contenido total de moléculas pequeñas de los sistemas biológicos y el intento de 
+relacionar el resultado sobre los fenómenos biológicos subyacentes. Su nacimiento y crecimiento como campo de estudio ha sido catalizado por 
+los éxitos de la genómica, así como por avances en espectrometría de masas (MS) que facilitan la medición altamente paralela de moléculas 
+pequeñas.(1)
 
 Ahora bien, ¿y por qué elegir *E. coli* para su estudio?
 
-*Escherichia coli* es una bacteria Gram negativa típica de la familia Enterobacteriaceae. El análisis de 16S rRNA muestra que pertenece a la subclase de proteobacterias γ, misma que se encuentra muy relacionada a las otras proteobacterias (α, a las cianobacterias). La subclase de proteobacterias γ incluye además a organismos patógenos de humanos, como son Shigella, Salmonella, Vibrio y Haemophilus. Las bacterias de la familia Enterobacteriaceae se caracterizan por ser capaces de respirar facultativamente: anaeróbicamente en el interior del intestino y aeróbicamente en el ambiente exterior. Gracias a esta capacidad muchos de los miembros de esta familia son de vida libre, mientras que otros tantos son principalmente comensales de animales invertebrados y vertebrados o son patógenos de plantas (2).
+*Escherichia coli* es una bacteria Gram negativa típica de la familia Enterobacteriaceae. El análisis de 16S rRNA muestra que pertenece a 
+la subclase de proteobacterias γ, misma que se encuentra muy relacionada a las otras proteobacterias (α, a las cianobacterias). 
+La subclase de proteobacterias γ incluye además a organismos patógenos de humanos, como son Shigella, Salmonella, Vibrio y Haemophilus. 
+Las bacterias de la familia Enterobacteriaceae se caracterizan por ser capaces de respirar facultativamente: anaeróbicamente en el interior 
+del intestino y aeróbicamente en el ambiente exterior. Gracias a esta capacidad muchos de los miembros de esta familia son de vida libre, 
+mientras que otros tantos son principalmente comensales de animales invertebrados y vertebrados o son patógenos de plantas (2).
 
-Las bacterias entéricas son varillas Gram-negativas no fotosintéticas capaces de generar ATP tanto aeróbicamente como anaeróbicamente. Por lo general, son competentes para vivir en medios mínimos simples que contienen solo sal, azúcar, amoníaco, fosfato y sulfato. Sus vías de metabolismo central y biosíntesis son notablemente similares a las de la levadura (3) y también, en cierta medida, de los mamíferos, a pesar de la compartimentación intracelular radicalmente diferente.(2)
+Las bacterias entéricas son varillas Gram-negativas no fotosintéticas capaces de generar ATP tanto aeróbicamente como anaeróbicamente. 
+Por lo general, son competentes para vivir en medios mínimos simples que contienen solo sal, azúcar, amoníaco, fosfato y sulfato. 
+Sus vías de metabolismo central y biosíntesis son notablemente similares a las de la levadura (3) y también, en cierta medida, de los 
+mamíferos, a pesar de la compartimentación intracelular radicalmente diferente.(2)
 
-*E. coli* es una de las bacterias más conocidas en la comunidad científica y la más estudiada debido a que es un buen organismo modelo, debido a que es fácilmente cultivable, es de crecimiento rápido y te permite obtener densidades poblacionales grandes, por tanto el estudio de su metabolómica, nos da una excelente ventana para el estudio de su metabolismo y su interacción con diversos medios. Dicho conocimiento es de importancia porque se puede extrapolar para estudios posteriores, ya que esta bacteria es ampliamente utilizada en la industria de la biotecnología, sobre todo en la producción de proteínas recombinantes. Su capacidad de poder modificarla genéticamente la convierte en un sistema ideal para estudios de expresión génica y producción de metabolitos de interés. A través de la ingeniería metabólica, se exploran nuevas vías para mejorar la producción de compuestos bioquímicos útiles y desarrollar nuevas estrategias de tratamiento contra las infecciones causadas por cepas patógenas.
-Las vías metabólicas de un amplio espectro de organismos están bien capturadas en varias bases de datos accesibles a la web, por ejemplo, la Enciclopedia de Genes y Genomas de Kioto (KEGG)(1), la cual es una de las que utilizaremos en este proyecto.
+*E. coli* es una de las bacterias más conocidas en la comunidad científica y la más estudiada debido a que es un buen organismo modelo, 
+debido a que es fácilmente cultivable, es de crecimiento rápido y te permite obtener densidades poblacionales grandes, por tanto el estudio 
+de su metabolómica, nos da una excelente ventana para el estudio de su metabolismo y su interacción con diversos medios. Dicho conocimiento 
+es de importancia porque se puede extrapolar para estudios posteriores, ya que esta bacteria es ampliamente utilizada en la industria de la 
+biotecnología, sobre todo en la producción de proteínas recombinantes. Su capacidad de poder modificarla genéticamente la convierte en un 
+sistema ideal para estudios de expresión génica y producción de metabolitos de interés. A través de la ingeniería metabólica, se exploran 
+nuevas vías para mejorar la producción de compuestos bioquímicos útiles y desarrollar nuevas estrategias de tratamiento contra las infecciones 
+causadas por cepas patógenas.
+Las vías metabólicas de un amplio espectro de organismos están bien capturadas en varias bases de datos accesibles a la web, por ejemplo, 
+la Enciclopedia de Genes y Genomas de Kioto (KEGG)(1), la cual es una de las que utilizaremos en este proyecto.
 
 
 "Lo que es cierto de *Escherichia coli* también debe ser cierto de los elefantes", opinó el premio Nobel Jacques Monod en 1954(4).
@@ -33,7 +57,7 @@ metabólicas reconocidas, mientras se controlan las diferencias entre réplicas 
 
 ## Metodología
 
-*Nuestros datos de entrada son datos de metabolómicos, los cuales fueron elaborados por la Dra. Daniela Ledezma del Centro de Ciencias Genómicas.
+*Nuestros datos de entrada son datos metabolómicos, los cuales fueron elaborados por la Dra. Daniela Ledezma del Centro de Ciencias Genómicas.
 
 Estos datos al principio se encotraban en forma de un archivo EXCEL (.xlsx), pero los modificamos
 para que sean ".csv", que nos serviran de mejor manera.
@@ -70,15 +94,18 @@ y específico, la logica que usaremos es la siguiente:
 
 3. Definir un subset de datos con los cuales trabajan, ya que son demasiados datos.
 
-4. Definir cual va a ser nuestro punto de corte, es decir, cuál sería una medida "normal" en la intensidad de los metabolitos, esto es de suma importancia, ya que de esta medida va a depender lo siguiente que hagamos.
+4. Definir cual va a ser nuestro punto de corte, es decir, cuál sería una medida "normal" en la intensidad de los metabolitos, esto es 
+de suma importancia, ya que de esta medida va a depender lo siguiente que hagamos.
 
-5. Obtener las columnas donde haya una gran concentración de matbolito y en las que haya menos, generando con estos un segundo subset de datos, para determinar que es una concentración mayor o menor, ocuparemos el dato anterior.
+5. Obtener las columnas donde haya una gran concentración de matbolito y en las que haya menos, generando con estos un segundo subset de 
+datos, para determinar que es una concentración mayor o menor, ocuparemos el dato anterior.
 
 6. Una vez que tengamos ese subset, conseguir sus ID de la base de datos de KEEG y guardarlos en un archivo.
 
-7. Ya que tengamos ese archivo, buscar las vías metabólicas en las que estan envueltos esos metabolitos, esta busqueda la haremos en la base de datos de KEEG.
+7. Ya que tengamos ese archivo, buscar las vías metabólicas en las que estan envueltos esos metabolitos, esta busqueda la haremos en la 
+base de datos de KEEG.
 
-8. Una vez que sepamos sus rutas metabólicas, vamos a interpretar los resultados y explicarlos para poder contestar nuestra pregunta biológica.*
+8. Una vez que sepamos sus rutas metabólicas, vamos a interpretar los resultados y explicarlos para poder contestar nuestra pregunta biológica.
 
 
 ### A. Servidor y software
