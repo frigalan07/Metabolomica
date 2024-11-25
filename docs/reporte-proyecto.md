@@ -57,7 +57,7 @@ metabólicas reconocidas, mientras se controlan las diferencias entre réplicas 
 
 ## Metodología
 
-*Nuestros datos de entrada son datos metabolómicos, los cuales fueron elaborados por la Dra. Daniela Ledezma del Centro de Ciencias Genómicas.
+Nuestros datos de entrada son datos metabolómicos, los cuales fueron elaborados por la Dra. Daniela Ledezma del Centro de Ciencias Genómicas.
 
 Estos datos al principio se encotraban en forma de un archivo EXCEL (.xlsx), pero los modificamos
 para que sean ".csv", que nos serviran de mejor manera.
@@ -92,20 +92,21 @@ y específico, la logica que usaremos es la siguiente:
 
 2. Revisar los datos detalladamente y entender su nomenclatura y anotación.
 
-3. Definir un subset de datos con los cuales trabajan, ya que son demasiados datos.
+3. Filtrar los datos eliminando las columnas que tengan "sc", ya que son datos extra que meteran ruido.
 
-4. Definir cual va a ser nuestro punto de corte, es decir, cuál sería una medida "normal" en la intensidad de los metabolitos, esto es 
+4. Analizar la variación de las columnas de H2O, para ver que tano se ensucio el espectrómetro, con la finalidad de saber si las lecturas se contaminaron.
+
+
+5. Definir cual va a ser nuestro punto de corte, es decir, cuál sería una medida "normal" en la intensidad de los metabolitos, lo cual se hará con el promedio de las lecturas de "H2O", esto es 
 de suma importancia, ya que de esta medida va a depender lo siguiente que hagamos.
 
-5. Obtener las columnas donde haya una gran concentración de matbolito y en las que haya menos, generando con estos un segundo subset de 
-datos, para determinar que es una concentración mayor o menor, ocuparemos el dato anterior.
+6. Obtener las columnas donde haya una gran concentración de matbolito y en las que haya menos, generando con estos dos subset de datos, uno para definir datos con una media significativamente menor a la media de H2O y el otro, para definir datos con una media significativamente mayor al control.
 
-6. Una vez que tengamos ese subset, conseguir sus ID de la base de datos de KEEG y guardarlos en un archivo.
+7. Una vez que tengamos estos subsets, conseguiriamos  sus ID's de la base de datos de KEEG y guardarlos en un archivo.
 
-7. Ya que tengamos ese archivo, buscar las vías metabólicas en las que estan envueltos esos metabolitos, esta busqueda la haremos en la 
-base de datos de KEEG.
+8. Ya que tengamos ese archivo, buscar las vías metabólicas en las que estan envueltos esos metabolitos, esta busqueda la haremos en la base de datos de KEEG.
 
-8. Una vez que sepamos sus rutas metabólicas, vamos a interpretar los resultados y explicarlos para poder contestar nuestra pregunta biológica.
+9. Una vez que sepamos sus rutas metabólicas, vamos a interpretar los resultados y explicarlos para poder contestar nuestra pregunta biológica.
 
 
 ### A. Servidor y software
