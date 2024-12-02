@@ -39,7 +39,7 @@ from collections import Counter
 # Librerías de terceros (instaladas vía pip)
 import pandas as pd
 import matplotlib.pyplot as plt
-import requests
+
 
 import sys
 import os
