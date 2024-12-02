@@ -3,22 +3,33 @@ Nombre:
     Análisis metabolómicos de E. Coli
 
 Version:
-    3.12.2
+    
 
 Autor:
     Galán Hernández Frida
     García González Carlos
 
 Descripcion:
-    Este programa hecho en Python tienen la funcionalidad de calcular la frecuencia de nucleótidos, 
-    la frecuencia de codones, además de que transcribe una secuencia de DNA a RNA y la traduce a una cadena de aminoácidos
+    Este script esta hecho en Python  y tienen la funcionalidad de analizar datos de metabolitos de Escherichia coli en diferentes condiciones experimentales. 
+    Utiliza bibliotecas estándar de Python, así como herramientas especializadas como Biopython, pandas y SciPy, para realizar análisis estadísticos y 
+    explorar rutas metabólicas. Inicialmente, se procesan argumentos de línea de comandos para seleccionar dos condiciones de interés. Luego, se cargan 
+    y filtran los datos provenientes de un archivo Excel, eliminando columnas irrelevantes. El script evalúa la normalidad de las distribuciones 
+    mediante la prueba de Shapiro-Wilk y compara los grupos utilizando la prueba de Kruskal-Wallis y un análisis post hoc de Dunn.
+
+    Además, el código incluye funciones para interactuar con la base de datos KEGG, permitiendo obtener nombres de metabolitos y rutas metabólicas asociadas. 
+    Posteriormente, los resultados se visualizan en un gráfico de barras horizontal que muestran la frecuencia de las rutas metabólicas identificadas. 
+    El programa también cuenta con manejo de errores para garantizar que se puedan identificar problemas durante el análisis, como fallos en las consultas 
+    a KEGG o datos faltantes. Esta herramienta es ideal para investigadores interesados en el análisis comparativo de metabolitos y sus implicaciones 
+    metabólicas.
+
 Argumentos:
-    - nombre archivo (path)
-    - n (T,A,G,C) para establecer el nucleótido de interesa 
-    - m (0,1,2) para establecer el marco de lectura, solo forward 
+    - c1: Primera condición en la que se encuentran los metabolitos, por defecto es 'asp'
+    - c2: Segunda condición en la que se encuentran los metabolitos, por defecto es 'glu'
+
 Usage:
-    python scripts/analisis_DNA.py PATH DE LA ARCHIVO CON LA SECUENCIA -n NUCLEÓTIDO -m MARCO DE LECTURA
-    python3 scripts/analisis_DNA.py /Users/frida_galan/Desktop/PythonSEM2/Notas_Biopython/seq.nt.fa -n T -m 0 
+    python scripts/analisis_metabolomicos_E_coli.py -c1 CONDICION1 -c2 CONDICION2
+    python3 scripts/analisis_metabolomicos_E_coli.py -c1  -c2 
+
 '''
 # Importaciones estándar de Python
 import argparse
@@ -53,13 +64,13 @@ parser = argparse.ArgumentParser(
 )
 
 parser.add_argument("-c1", "--CONDICION1",
-                    help="Primera condición para expresión diferencial, por defecto 'asp'",
+                    help="Especifica la primera condición experimental para el análisis de los metabolitos, por defecto 'asp'",
                     type=str,
                     default="asp",
                     required=False)
 
 parser.add_argument("-c2", "--CONDICION2",
-                    help="Segunda condición para expresión diferencial, por defecto 'glu'",
+                    help="Especifica la segunda condición experimental para el análisis de los metabolitos, por defecto 'glu'",
                     type=str,
                     default="glu",
                     required=False)
