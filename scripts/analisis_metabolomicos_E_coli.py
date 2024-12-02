@@ -3,7 +3,7 @@ Nombre:
     Análisis metabolómicos de E. Coli
 
 Version:
-    
+    4.3.2
 
 Autor:
     Galán Hernández Frida
