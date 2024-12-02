@@ -28,7 +28,7 @@ Argumentos:
 
 Usage:
     python scripts/analisis_metabolomicos_E_coli.py -c1 CONDICION1 -c2 CONDICION2
-    python3 scripts/analisis_metabolomicos_E_coli.py -c1  -c2 
+    python3 scripts/analisis_metabolomicos_E_coli.py -c1 ara -c2 arg
 
 '''
 # Importaciones estándar de Python
