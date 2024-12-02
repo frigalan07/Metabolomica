@@ -41,9 +41,6 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import requests
 
-# Importaciones específicas de Biopython
-from Bio.KEGG import REST
-
 import sys
 import os
 
@@ -56,6 +53,10 @@ sys.path.append(project_root)  # Agregar la raíz del proyecto a sys.path
 from operations.pruebas_estadisticas import prueba_shapiro
 from operations.pruebas_estadisticas import prueba_kruskal
 from operations.pruebas_estadisticas import prueba_posthoc_dunn
+from utils.file_io import limpiar_ids_kegg
+from utils.file_io import obtener_nombre_metabolito
+from utils.file_io import obtener_rutas
+from utils.file_io import obtener_nombre_rutas
 
 
 # Se parsean los argumentos usando la libreria de argparse
@@ -77,68 +78,6 @@ parser.add_argument("-c2", "--CONDICION2",
 
 args = parser.parse_args()
 
-
-
-def limpiar_ids_kegg(ids):
-    return [id.strip().replace(" ", "%20") for id in ids]
-
-
-def obtener_rutas_metabolicas(id_kegg):
-    try:
-        # Hacer la consulta a la base de datos KEGG para obtener la información
-        pathway = REST.kegg_get(f"pathway:{id_kegg}")
-        
-        # Parsear la respuesta y extraer las rutas metabólicas
-        pathways = pathway.read().splitlines()
-        
-        # Filtrar y mostrar las rutas
-        rutas = [line for line in pathways if "PATHWAY" in line]
-        
-        return rutas
-    except Exception as e:
-        print(f"Error al consultar KEGG para {id_kegg}: {e}")
-        return []
-
-# Función para obtener el nombre de un metabolito
-def get_compound_name(compound_id):
-    url = f"http://rest.kegg.jp/get/{compound_id}"
-    response = requests.get(url)
-    if response.status_code == 200:
-        data = response.text
-        # El nombre del compuesto aparece en la línea que comienza con "NAME"
-        for line in data.split("\n"):
-            if line.startswith("NAME"):
-                return line.split("NAME")[1].strip()
-    return "Nombre desconocido"
-
-# Función para consultar rutas metabólicas para un metabolito
-def get_metabolic_pathways(compound_id):
-    url = f"http://rest.kegg.jp/link/pathway/{compound_id}"
-    response = requests.get(url)
-    if response.status_code == 200:
-        data = response.text.strip()
-        pathways = []
-        for line in data.split("\n"):
-            if "\t" in line:
-                parts = line.split("\t")
-                if len(parts) > 1:
-                    pathways.append(parts[1])
-        return list(set(pathways))  # Elimina duplicados
-    return []
-
-# Función para obtener el nombre de una ruta metabólica
-def get_pathway_name(pathway_id):
-    url = f"http://rest.kegg.jp/get/{pathway_id}"
-    response = requests.get(url)
-    if response.status_code == 200:
-        data = response.text
-        # El nombre de la ruta aparece en la primera línea después del encabezado
-        for line in data.split("\n"):
-            if line.startswith("NAME"):
-                return line.split("NAME")[1].strip()
-        # Alternativamente, el nombre podría estar en la primera línea
-        return data.split("\n")[1].strip()
-    return "Nombre desconocido"
 
 if __name__ == "__main__":
     # Ruta al archivo de datos
@@ -201,12 +140,12 @@ if __name__ == "__main__":
             global_pathways = []
             for compound in ids_kegg_limpios:
                 try:
-                    compound_name = get_compound_name(compound)
-                    pathways = get_metabolic_pathways(compound)
+                    compound_name = obtener_nombre_metabolito(compound)
+                    pathways = obtener_rutas(compound)
                     global_pathways.extend(pathways)
                     print(f"Metabolito: {compound} ({compound_name})")
                     for path in pathways:
-                        print(f"  {path}: {get_pathway_name(path)}")
+                        print(f"  {path}: {obtener_nombre_rutas(path)}")
                 except Exception as e:
                     print(f"Error procesando el compuesto {compound}: {e}")
 
@@ -220,7 +159,7 @@ if __name__ == "__main__":
             df_frecuencias.rename(columns={'index': 'Ruta'}, inplace=True)
 
             # Agregar nombres de rutas al DataFrame
-            df_frecuencias['Nombre de la Ruta'] = df_frecuencias['Ruta'].apply(get_pathway_name)
+            df_frecuencias['Nombre de la Ruta'] = df_frecuencias['Ruta'].apply(obtener_nombre_rutas)
 
             # Ordenar por frecuencia descendente
             df_frecuencias = df_frecuencias.sort_values(by='Frecuencia', ascending=False)

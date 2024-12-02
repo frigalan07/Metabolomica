@@ -1,80 +1,47 @@
-"""
-file_io.py: Funciones para manejar operaciones de entrada/salida de archivos de ADN.
-
-Este módulo provee funcionalidades para leer y escribir secuencias de ADN desde y hacia
-archivos, asegurando que las secuencias sean válidas y estén bien formateadas.
-
-Funciones:
-    read_dna_sequence(filename) - Lee una secuencia de ADN de un archivo.
-    write_dna_sequence(filename, sequence) - Escribe una secuencia de ADN en un archivo.
-    
-Ejemplos de uso están disponibles en el bloque principal del módulo.
-
-"""
+import requests
 
 
-def read_dna_sequence(filename):
-    """
-    Lee una secuencia de ADN de un archivo de texto.
-    
-    Args:
-        filename (str): El nombre del archivo del cual leer la secuencia.
-        
-    Returns:
-        str: La secuencia de ADN contenida en el archivo.
-        
-    Raises:
-        FileNotFoundError: Si el archivo especificado no se encuentra.
-        ValueError: Si el archivo está vacío o contiene caracteres no válidos.
-    """
-    with open(filename, 'r') as file:
-        sequence = file.read().strip().upper()
-    if not sequence:
-        raise ValueError("El archivo está vacío.")
-    return sequence
+def limpiar_ids_kegg(ids):
+    return [id.strip().replace(" ", "%20") for id in ids]
 
-def write_dna_sequence(filename, sequence):
-    """
-    Escribe una secuencia de ADN en un archivo de texto.
-    
-    Args:
-        filename (str): El nombre del archivo donde se escribirá la secuencia.
-        sequence (str): La secuencia de ADN a escribir.
-        
-    Raises:
-        IOError: Si no se puede escribir en el archivo.
-    """
-    with open(filename, 'w') as file:
-        file.write(sequence + '\n')
 
-if __name__ == "__main__":
-    # Bloques de prueba para demostrar la funcionalidad del módulo.
-    
-    # Suponiendo que el archivo "example_dna.txt" contiene la secuencia válida "ATCG"
-    try:
-        sequence = read_dna_sequence("example_dna.txt")
-        print(f"Secuencia leída correctamente: {sequence}")
-        
-        # Ahora escribir esta secuencia a un nuevo archivo
-        write_dna_sequence("output_dna.txt", sequence)
-        print("Secuencia escrita correctamente en 'output_dna.txt'.")
-    except Exception as e:
-        print(f"Error: {str(e)}")
+# Función para obtener el nombre de un metabolito
+def obtener_nombre_metabolito(compound_id):
+    url = f"http://rest.kegg.jp/get/{compound_id}"
+    response = requests.get(url)
+    if response.status_code == 200:
+        data = response.text
+        # El nombre del compuesto aparece en la línea que comienza con "NAME"
+        for line in data.split("\n"):
+            if line.startswith("NAME"):
+                return line.split("NAME")[1].strip()
+    return "Nombre desconocido"
 
-def ignore_head_FASTA(file_path):
-    '''
-    Lee una secuencia de ADN de un archivo FASTA ignorando la cabecera.
+# Función para consultar rutas metabólicas para un metabolito
+def obtener_rutas(compound_id):
+    url = f"http://rest.kegg.jp/link/pathway/{compound_id}"
+    response = requests.get(url)
+    if response.status_code == 200:
+        data = response.text.strip()
+        pathways = []
+        for line in data.split("\n"):
+            if "\t" in line:
+                parts = line.split("\t")
+                if len(parts) > 1:
+                    pathways.append(parts[1])
+        return list(set(pathways))  # Elimina duplicados
+    return []
 
-    Args:
-        file_path (str): La ruta al archivo FASTA.
-
-    Returns:
-        str: La secuencia de ADN.
-    '''
-    sequence = []
-    with open(file_path, 'r') as file:
-        for line in file:
-            if line.startswith('>'):
-                continue
-            sequence.append(line.strip())
-    return ''.join(sequence)
+# Función para obtener el nombre de una ruta metabólica
+def obtener_nombre_rutas(pathway_id):
+    url = f"http://rest.kegg.jp/get/{pathway_id}"
+    response = requests.get(url)
+    if response.status_code == 200:
+        data = response.text
+        # El nombre de la ruta aparece en la primera línea después del encabezado
+        for line in data.split("\n"):
+            if line.startswith("NAME"):
+                return line.split("NAME")[1].strip()
+        # Alternativamente, el nombre podría estar en la primera línea
+        return data.split("\n")[1].strip()
+    return "Nombre desconocido"
