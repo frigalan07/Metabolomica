@@ -76,7 +76,7 @@ args = parser.parse_args()
 # Inicio del programa principal
 if __name__ == "__main__":
     # Ruta al archivo de datos de metabolómica
-    ruta_archivo = "..\..\..\..\..\Downloads\datos_metabolomica.xlsx"
+    ruta_archivo = os.path.join(os.path.dirname(__file__), '..', 'docs', 'datos_metabolomica.xlsx')
     try:
         # Leer el archivo Excel con los datos crudos
         datos_crudos = pd.read_excel(ruta_archivo)
