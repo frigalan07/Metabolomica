@@ -111,78 +111,83 @@ de suma importancia, ya que de esta medida va a depender lo siguiente que hagamo
 
 ### A. Servidor y software
 
-> Servidor: 
+**Servidor**:
+    Servidor local con capacidad para ejecutar scripts en Python y manejar análisis de datos.
 
-> Usuario: 
+**Usuario**:
+    Frida Galán Hernández y Carlos García González
 
-> Software: 
+**Software**:
+        - **Python 3.7 o superior**: Para el análisis y manejo de datos metabolómicos.
+        - **Librerías necesarias**: pandas, matplotlib, requests, scipy, sciki_posthocs y módulos personalizados para pruebas estadísticas y
+        manejo de datos KEGG.
+        - **Microsoft Excel o similar**: Para trabajar con los archivos .xlsx utilizados como entrada. 
 
 ### B. Datos de Entrada 
 
-Entendiendo los archivos de datos 
+Los datos de entrada fueron proporcionados por la Dra. Daniela Ledezma Tejada a la Dra. Heladia Salgado Osorio. 
+Estos representan mediciones de intensidades relativas de metabolitos en Escherichia coli bajo diferentes condiciones experimentales.
+Se descargaron los datos desde el *Moodle para el curso de Biopython* y estan localizados en la carpeta:
+"docs"
 
-Los datos de entrada fueron descargados desde NCBI y se encuentran en RUTA DE LA CARPETA.
 
 
 #### Metadatos de la carpeta de datos
 
-<!-- 
-> Versión/Identificador del genoma:  NC_000913.3
-
-> Fecha de descarga: dd/mm/aaaa
+Fecha de descarga: 09/18/2024
 
 >| Archivo | Descripción  | Tipo |
 |:--      |:--           |:--  |
-| coli_genomic.fna  | Secuencia de nucleotidos de E. coli  | Formato FastA |
-| coli.gff.   | Anotación del genoma de E. coli  | Formato gff |
-| coli_protein.faa | Secuencia de aminoacidos de las proteinas de E. coli | formato FastA|
-| flagella_genes.txt | Genes con función relacionada al flagello en E. coli | lista |
-| directorio.txt. | Archivo con nombres de personas | lista |
-
--->
+| datos_metabolomica.xlsx  | Intensidades relativas de metabolitos bajo distintas condiciones.  | Formato Excel |
 
 #### Formato de los archivos
 
+**Descripción de columnas principales del archivo datos_metabolomica.xlsx**:
+    El archivo de Excel incluye:
 
+        - **Columna ionMz**: Identificación basada en la relación masa/carga (m/z) del metabolito.
+        - **Columna formula**: Fórmula molecular del metabolito identificado.
+        - **Columna KEGG ids**: Identificadores únicos del metabolito en la base de datos KEGG.
+        - **Columnas de datos experimentales (e.g., h2o_s1, ace_2_sb)**: Intensidades relativas de metabolitos bajo diferentes condiciones 
+        experimentales.
 
 ### Preguntas de investigación
 
-1)¿Cómo cambia la intensidad de cada metabolito en respuesta a los  diferentes medios?
+1. **¿Cómo cambia la intensidad de cada metabolito en respuesta a los diferentes medios?**
+Comparar promedios de intensidades y realizar pruebas estadísticas entre condiciones experimentales (H2O, asp, glu).
 
-2)¿Qué vías metabólicas se ven afectadas por dicho cambio en el medio?
+2. **¿Qué vías metabólicas se ven afectadas por dicho cambio en el medio?**
+Asociar los metabolitos identificados con rutas metabólicas conocidas utilizando KEGG.
 
-3)Proponer mediante que mecanismos se ven afectadas dichas vías metabólicas 
-
-
-
--->
+3. **¿Qué mecanismos podrían estar regulando dichas vías metabólicas?**
+Realizar una revisión funcional de las rutas afectadas, integrando datos biológicos y metabólicos.
 
 
 ## Resultados
  
+Los resultados del análisis se presentarán organizados en las siguientes secciones:
 
-<!-- ### X. Pregunta 
+    - **Pruebas de Normalidad y Estadísticas**:
+        Incluye resultados de Shapiro-Wilk, Kruskal-Wallis y Dunn para determinar significancia entre las condiciones experimentales.
 
-Archivo(s):     
+    - **Análisis de Vías Metabólicas**:
+        Identificación de rutas metabólicas relevantes y su frecuencia de aparición.
 
-Algoritmo: 
-
-1. 
-
-Solución: Describir paso a paso la solución, incluyendo los comandos correspondientes
-
-```bash
-
-```
-
--->
-
+    - **Visualización**:
+        Gráficos que representa la frecuencias de las rutas.
 
 
 
 ## Análisis y Conclusiones
 
- <!-- Describir todo lo que descubriste en este análisis -->
+**Análisis**:
+    - Los cambios en la intensidad de los metabolitos sugieren una respuesta adaptativa significativa de E. coli a diferentes medios experimentales.
+    - La combinación de pruebas estadísticas robustas y asociaciones con KEGG valida la reproducibilidad de los resultados.
+
+**Conclusiones**:
+    - Las condiciones del medio pueden influir significativamente en las rutas metabólicas centrales de E. coli.
+    - Los mecanismos reguladores probablemente involucran respuestas transcripcionales y ajustes enzimáticos rápidos.
+    - Este análisis proporciona un marco útil para explorar más a fondo cómo factores externos afectan el metabolismo microbiano.
 
 
 ## Referencias
