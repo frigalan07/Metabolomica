@@ -34,6 +34,7 @@ python script_metabolomica.py -c1 <CONDICION1> -c2 <CONDICION2>
 ```
 
 <CONDICION1>: Condición experimental para el grupo 1 (por defecto, "asp").
+
 <CONDICION2>: Condición experimental para el grupo 2 (por defecto, "glu").
 
 
